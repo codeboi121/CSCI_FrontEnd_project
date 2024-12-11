@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Addition</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container" id="settings" hidden>
+        <h1>Settings</h1>
+        <div class="problem">
+            <input type="number" id="rangeFrom" placeholder="range from" />
+            <input type="number" id="rangeTo" placeholder="range to" />
+            <input type="number" id="numberOfQuestions" placeholder="number of Questions" />
+        </div>
+        <div class="operations">
+            <label for="add_operation">Addition </label><input type="checkbox" name="add_operation" id="add_operation">
+            <label for="sub_operation">Subtraction </label><input type="checkbox" name="sub_operation" id="sub_operation">
+            <label for="mul_operation">Multiplication </label><input type="checkbox" name="mul_operation" id="mul_operation">
+            <label for="div_operation">Division </label><input type="checkbox" name="div_operation" id="div_operation">
+        </div><br>
+        <button id="startQuestions">Start</button>
+    </div>
+    <div class="container" id="questionary">
+        <h1>Questions</h1>
+        <div class="problem">
+            <span id="num1"></span> + <span id="num2"></span> = 
+            <input type="number" id="userAnswer" placeholder="Your answer" />
+        </div>
+        <button id="checkAnswer">Check Answer</button>
+        <div>
+            <label for="">True: </label><span id="correct"></span>
+            <label for="">False: </label><span id="wrong"></span>
+        </div>
+        <button id="nextProblem">Next Problem</button>
+    </div>
+    
+    <script src="new.js"></script>
+</body>
+</html>
