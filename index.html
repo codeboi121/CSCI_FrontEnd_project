@@ -1,41 +1,58 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learn Addition</title>
+    <title>Learn Arithmetic Calculations</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container" id="settings" hidden>
+    <div class="container" id="settings">
         <h1>Settings</h1>
-        <div class="problem">
-            <input type="number" id="rangeFrom" placeholder="range from" />
-            <input type="number" id="rangeTo" placeholder="range to" />
-            <input type="number" id="numberOfQuestions" placeholder="number of Questions" />
-        </div>
-        <div class="operations">
-            <label for="add_operation">Addition </label><input type="checkbox" name="add_operation" id="add_operation">
-            <label for="sub_operation">Subtraction </label><input type="checkbox" name="sub_operation" id="sub_operation">
-            <label for="mul_operation">Multiplication </label><input type="checkbox" name="mul_operation" id="mul_operation">
-            <label for="div_operation">Division </label><input type="checkbox" name="div_operation" id="div_operation">
-        </div><br>
-        <button id="startQuestions">Start</button>
-    </div>
-    <div class="container" id="questionary">
-        <h1>Questions</h1>
-        <div class="problem">
-            <span id="num1"></span> + <span id="num2"></span> = 
-            <input type="number" id="userAnswer" placeholder="Your answer" />
-        </div>
-        <button id="checkAnswer">Check Answer</button>
         <div>
-            <label for="">True: </label><span id="correct"></span>
-            <label for="">False: </label><span id="wrong"></span>
+            <label>Range:</label>
+            <input type="number" id="rangeFrom" placeholder="From">
+            <input type="number" id="rangeTo" placeholder="To">
         </div>
-        <button id="nextProblem">Next Problem</button>
+        <div>
+            <label>Number of Questions:</label>
+            <input type="number" id="numberOfQuestions" placeholder="Total Questions">
+        </div>
+        <div>
+            <label>Select Operations:</label>
+            <input type="checkbox" id="add_operation"> Addition
+            <input type="checkbox" id="sub_operation"> Subtraction
+            <input type="checkbox" id="mul_operation"> Multiplication
+            <input type="checkbox" id="div_operation"> Division
+        </div>
+        <div>
+            <label>Enable Timer:</label>
+            <input type="checkbox" id="timerOption">
+            <input type="number" id="timerSeconds" placeholder="Seconds (Optional)">
+        </div>
+        <button id="startQuestions">Start Quiz</button>
     </div>
-    
+
+    <div class="container" id="questionary" hidden>
+        <h1>Question</h1>
+        <div class="problem">
+            <span id="num1"></span> <span id="symbol"></span> <span id="num2"></span> =
+            <input type="number" id="userAnswer" placeholder="Your Answer">
+        </div>
+        <div id="timerDisplay"></div>
+        <button id="checkAnswer">Check Answer</button>
+    </div>
+
+    <div class="container" id="result" hidden>
+        <h1>Results</h1>
+        <div>
+            <p>Correct Answers: <span id="correctAnswers"></span></p>
+            <p>Wrong Answers: <span id="wrongAnswers"></span></p>
+            <p>Score: <span id="percentage"></span></p>
+        </div>
+    </div>
+
     <script src="new.js"></script>
 </body>
 </html>
