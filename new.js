@@ -1,4 +1,3 @@
-
 var correctAnswers = 0;
 var wrongAnswers = 0;
 var count = 0;
@@ -16,30 +15,30 @@ function generateRandomNumbers(from, to) {
 
 function generateProblem() {
     let [num1, num2] = generateRandomNumbers(
-        parseInt(document.getElementById('rangeFrom').value),
-        parseInt(document.getElementById('rangeTo').value)
+        parseInt(document.getElementById(`rangeFrom`).value),
+        parseInt(document.getElementById(`rangeTo`).value)
     );
 
     let operation = operations[Math.floor(Math.random() * operations.length)];
     let question = { num1, num2, operation };
 
-    if (operation === "add") {
+    if (operation === `add`) {
         question.answer = num1 + num2;
-        question.symbol = "+";
-    } else if (operation === "sub") {
+        question.symbol = `+`;
+    } else if (operation === `sub`) {
         question.answer = num1 - num2;
-        question.symbol = "-";
-    } else if (operation === "mul") {
+        question.symbol = `-`;
+    } else if (operation === `mul`) {
         question.answer = num1 * num2;
-        question.symbol = "*";
-    } else if (operation === "div") {
+        question.symbol = `*`;
+    } else if (operation === `div`) {
         question.answer = (num2 === 0 ? 0 : Math.floor(num1 / num2));
-        question.symbol = "/";
+        question.symbol = `/`;
     }
 
-    document.getElementById("num1").textContent = num1;
-    document.getElementById("num2").textContent = num2;
-    document.getElementById("symbol").textContent = question.symbol;
+    document.getElementById(`num1`).textContent = `${num1}`;
+    document.getElementById(`num2`).textContent = `${num2}`;
+    document.getElementById(`symbol`).textContent = `${question.symbol}`;
     return question;
 }
 
@@ -51,28 +50,28 @@ function startQuiz() {
     timeUsed = 0;
 
     // Get user settings
-    numberOfQuestions = parseInt(document.getElementById("numberOfQuestions").value);
+    numberOfQuestions = parseInt(document.getElementById(`numberOfQuestions`).value);
     operations = [];
-    if (document.getElementById("add_operation").checked) operations.push("add");
-    if (document.getElementById("sub_operation").checked) operations.push("sub");
-    if (document.getElementById("mul_operation").checked) operations.push("mul");
-    if (document.getElementById("div_operation").checked) operations.push("div");
+    if (document.getElementById(`add_operation`).checked) operations.push(`add`);
+    if (document.getElementById(`sub_operation`).checked) operations.push(`sub`);
+    if (document.getElementById(`mul_operation`).checked) operations.push(`mul`);
+    if (document.getElementById(`div_operation`).checked) operations.push(`div`);
 
-    if (document.getElementById("timerOption").checked) {
-        timerSeconds = parseInt(document.getElementById("timerSeconds").value);
+    if (document.getElementById(`timerOption`).checked) {
+        timerSeconds = parseInt(document.getElementById(`timerSeconds`).value);
         startTimer();
     }
 
     // Show questionary, hide settings
-    document.getElementById("settings").hidden = true;
-    document.getElementById("questionary").hidden = false;
+    document.getElementById(`settings`).hidden = true;
+    document.getElementById(`questionary`).hidden = false;
 
     // Generate first problem
     currentProblem = generateProblem();
 }
 
 function checkAnswer() {
-    let userAnswer = parseInt(document.getElementById("userAnswer").value);
+    let userAnswer = parseInt(document.getElementById(`userAnswer`).value);
     if (userAnswer === currentProblem.answer) {
         correctAnswers++;
     } else {
@@ -88,13 +87,12 @@ function checkAnswer() {
 }
 
 function endQuiz() {
-    document.getElementById("questionary").hidden = true;
-    document.getElementById("result").hidden = false;
+    document.getElementById(`questionary`).hidden = true;
+    document.getElementById(`result`).hidden = false;
 
-    document.getElementById("correctAnswers").textContent = correctAnswers;
-    document.getElementById("wrongAnswers").textContent = wrongAnswers;
-    document.getElementById("percentage").textContent =
-        ((correctAnswers / numberOfQuestions) * 100).toFixed(2) + "%";
+    document.getElementById(`correctAnswers`).textContent = `${correctAnswers}`;
+    document.getElementById(`wrongAnswers`).textContent = `${wrongAnswers}`;
+    document.getElementById(`percentage`).textContent = `${((correctAnswers / numberOfQuestions) * 100).toFixed(2)}%`;
 }
 
 function startTimer() {
@@ -102,7 +100,7 @@ function startTimer() {
 
     timer = setInterval(() => {
         timerSeconds--;
-        document.getElementById("timerDisplay").textContent = timerSeconds + "s";
+        document.getElementById(`timerDisplay`).textContent = `${timerSeconds}s`;
         timeUsed++;
         if (timerSeconds <= 0) {
             clearInterval(timer);
@@ -111,5 +109,5 @@ function startTimer() {
     }, 1000);
 }
 
-document.getElementById("startQuestions").addEventListener("click", startQuiz);
-document.getElementById("checkAnswer").addEventListener("click", checkAnswer);
+document.getElementById(`startQuestions`).addEventListener(`click`, startQuiz);
+document.getElementById(`checkAnswer`).addEventListener(`click`, checkAnswer);
