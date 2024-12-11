@@ -47,3 +47,19 @@ button:hover {
     margin-top: 20px;
     font-size: 20px;
 }
+
+#timerDisplay {
+    font-size: 20px;
+    font-weight: bold;
+    color: red;
+    margin-top: 20px;
+}
+
+#result p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+#result {
+    font-size: 16px;
+}
